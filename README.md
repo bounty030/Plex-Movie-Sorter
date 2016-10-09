@@ -52,7 +52,7 @@ Steps 1, 2 and 3 are only made to ensure that the auto-detection uses the name o
 4. Auto-detect, create folder-structure, move file to folder-structure by using Filebot
 
 The end result is the following:
-Folder-structure is firstLetter/year/movie-file where firstLetter is the firstLetter of the name of the movie except when it starts with "The", "A", "An".
+Folder-structure is firstLetter/year/movie-file where firstLetter is the firstLetter of the name of the movie except if it starts with "The", "A", "An".
 
 For example:
 example/input_dir/The.Sword.of.Doom.1966.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv -> example/output_dir/S/1966/The.Sword.of.Doom/The.Sword.of.Doom.1966.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv
