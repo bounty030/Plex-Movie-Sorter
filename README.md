@@ -2,7 +2,7 @@
 Program which sorts movies from A to Z into folders. Fine-tuned for plex-scappers.
 
 #Description
-The program auto-detects the movie by using the program "Filebot". Filebot reads the name of the folder in which the movie file is located and then compares it with a database (by default it is TheMovieDB). This is crucial because that's the way the Plex-Scrappers do it and doing it this way ensures that the Plex-Scrappers will detect the movie as well. The movie-file is then moved to the following folder-structure:
+The program auto-detects movies by using the program "Filebot". Filebot reads the name of the folder in which the movie file is located and then compares it with a database (by default it is TheMovieDB). This is crucial because that's the way the Plex-Scrappers do it and doing it this way ensures that the Plex-Scrappers will detect the movie as well. The movie-file is then moved to the following folder-structure:
 
 firstLetter/year/nameOfMovie/movieFile
 
