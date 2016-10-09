@@ -1,5 +1,8 @@
-/home/tbfk/Mount/intHDD/Documents/Scripts/git/Plex-Movie-Sorter/example/input_dir/The.River.1951.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv
-/home/tbfk/Mount/intHDD/Documents/Scripts/git/Plex-Movie-Sorter/example/input_dir/3.Women.1977.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv
-/home/tbfk/Mount/intHDD/Documents/Scripts/git/Plex-Movie-Sorter/example/input_dir/Lola.Montes.1955.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv
-/home/tbfk/Mount/intHDD/Documents/Scripts/git/Plex-Movie-Sorter/example/input_dir/Paprika 2006 1080P Blu-Ray x264 TrueHD - BluDragon.mkv
-/home/tbfk/Mount/intHDD/Documents/Scripts/git/Plex-Movie-Sorter/example/input_dir/The.Sword.of.Doom.1966.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv
+/home/tbfk/Mount/intHDD/Documents/Scripts/plex-movie-sorter/example/input_dir/The.River.1951.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv
+/home/tbfk/Mount/intHDD/Documents/Scripts/plex-movie-sorter/example/input_dir/A Bug's Life.mkv
+/home/tbfk/Mount/intHDD/Documents/Scripts/plex-movie-sorter/example/input_dir/An Education.mkv
+/home/tbfk/Mount/intHDD/Documents/Scripts/plex-movie-sorter/example/input_dir/3.Women.1977.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv
+/home/tbfk/Mount/intHDD/Documents/Scripts/plex-movie-sorter/example/input_dir/"12th and Delaware".mkv
+/home/tbfk/Mount/intHDD/Documents/Scripts/plex-movie-sorter/example/input_dir/Lola.Montes.1955.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv
+/home/tbfk/Mount/intHDD/Documents/Scripts/plex-movie-sorter/example/input_dir/Paprika 2006 1080P Blu-Ray x264 TrueHD - BluDragon.mkv
+/home/tbfk/Mount/intHDD/Documents/Scripts/plex-movie-sorter/example/input_dir/The.Sword.of.Doom.1966.1080p.Criterion.Bluray.DTS.x264-GCJM.mkv

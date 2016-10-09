@@ -63,7 +63,7 @@ def FormatConfigString(string):
   return config_string
 
 
-def TestNameScheme(input_path, output_path, name_format, database):
+def Filebot(input_path, output_path, name_format, database):
 
   name_format_filebot = "\"" + name_format + "\"" # add " at the start and end of name_format for filebot
 
@@ -112,7 +112,7 @@ def main():
   print("\n \n")
 
   nM.PutNakedMoviesInFolders(input_path, file_extensions)
-  TestNameScheme(input_path, output_path, name_format, database)  
+  Filebot(input_path, output_path, name_format, database)  
 
 
 main()

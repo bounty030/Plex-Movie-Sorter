@@ -5,7 +5,7 @@ input_path = example/input_dir/
 output_path = example/output_dir/
 
 #Name scheme for renaming the files with Filebot
-name_format = "{n.acronym().getAt(0)}/{y}/{n.space('.')}"
+name_format = "{n.acronym().getAt(0).replaceAll('0', '#').replaceAll('1', '#').replaceAll('2', '#').replaceAll('3', '#').replaceAll('4', '#').replaceAll('5', '#').replaceAll('6', '#').replaceAll('7', '#').replaceAll('8', '#').replaceAll('9', '#')}/{y}/{n.space('.')}"
 
 #Database used by Filebot to auto-detect movies
 database = "TheMovieDB"
