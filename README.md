@@ -13,8 +13,8 @@ nameOfMovie - name of the movie
 movieFile - unchanged name of the movie file
 
 #Dependencies
-Python3.5
-Filebot
+-Python3.5
+-Filebot
 
 #Install
 No installation needed.
