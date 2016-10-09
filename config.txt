@@ -1,0 +1,9 @@
+input_path = example/input_dir/
+
+output_path = example/output_dir/
+
+name_format = "{n.acronym().getAt(0)}/{y}/{n.space('.')}"
+
+database = "TheMovieDB"
+
+file_extensions = ['avi', 'dat', 'mp4', 'mkv', 'vob', 'flv'] 
