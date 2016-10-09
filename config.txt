@@ -1,9 +1,14 @@
+#Directory where the movie files are located
 input_path = example/input_dir/
 
+#Directory where the movie files are moved to
 output_path = example/output_dir/
 
+#Name scheme for renaming the files with Filebot
 name_format = "{n.acronym().getAt(0)}/{y}/{n.space('.')}"
 
+#Database used by Filebot to auto-detect movies
 database = "TheMovieDB"
 
+#Only files with defined extensions will be processed
 file_extensions = ['avi', 'dat', 'mp4', 'mkv', 'vob', 'flv'] 
