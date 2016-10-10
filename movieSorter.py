@@ -7,7 +7,7 @@ import subprocess
 import modules.scanDir as sD
 import modules.nakedMovies as nM
 
-#reads the config-parameters from the config file
+
 def ReadConfig(config_file, config_words):
   i = 0
     
@@ -31,12 +31,11 @@ def ReadConfig(config_file, config_words):
   return input_path, output_path, name_format, database, file_extensions
   
   
-#searches the config file for each config-parameters and returns error if config-parameter is missing
+
 def SearchConfig(config_file, config_word):
   
   config_content = ""
   
-  #search for the config word
   with open(config_file) as f:
     for content in f: 
       if content.startswith(config_word):
@@ -46,7 +45,6 @@ def SearchConfig(config_file, config_word):
   
   f.close()
 
-  #if config word misses return error and exit program
   if len(config_content) == 0:
     print("no " + config_word + "in " + config_file + " found")
     print("program exit")
@@ -54,7 +52,7 @@ def SearchConfig(config_file, config_word):
   else:
     return config_content
   
-#formats a string/line in the config.txt file for reading out the config-parameter
+
 def FormatConfigString(string):
   content = string.rstrip()  #removes newline and whitespaces at the end of the string
   content = content.replace(" ", "") #removes all whitespace
@@ -64,8 +62,8 @@ def FormatConfigString(string):
   config_string = content[char_pos:length_content]  # remove file extension
   return config_string
 
-#auto-detect, rename, move movies using filebot
-def Filebot(input_path, output_path, name_format, database):
+
+def FilebotMove(input_path, output_path, name_format, database):
 
   name_format_filebot = "\"" + name_format + "\"" # add " at the start and end of name_format for filebot
 
@@ -87,7 +85,55 @@ def Filebot(input_path, output_path, name_format, database):
                     "--output",
                     output_path
                   ])
-      
+    
+def FilebotCopy(input_path, output_path, name_format, database):
+
+  name_format_filebot = "\"" + name_format + "\"" # add " at the start and end of name_format for filebot
+
+  #start auto-detecting, renaming and moving of files
+  print("Starting auto-detecting, renaming and moving files ...")
+  subprocess.call([ "filebot", 
+                    "-script",
+                    "fn:renall",
+                    input_path,
+                    "-non-strict",
+                    "--format",
+                    name_format_filebot,
+                    "--action",
+                    "copy",
+                    "--db",
+                    database,
+                    "--def",
+                    "target=folder",
+                    "--output",
+                    output_path
+                  ])  
+
+
+def FilebotTest(input_path, output_path, name_format, database):
+
+  name_format_filebot = "\"" + name_format + "\"" # add " at the start and end of name_format for filebot
+
+  #start auto-detecting, renaming and moving of files
+  print("Starting auto-detecting, renaming and moving files ...")
+  subprocess.call([ "filebot", 
+                    "-script",
+                    "fn:renall",
+                    input_path,
+                    "-non-strict",
+                    "--format",
+                    name_format_filebot,
+                    "--action",  
+                    "test",      
+                    "--db",
+                    database,
+                    "--def",
+                    "target=folder",
+
+                    "--output",
+                    output_path
+                  ])
+
 
 def main():
 
@@ -105,7 +151,6 @@ def main():
   print("Reading parameters from " + config_file)
   input_path, output_path, name_format, database, file_extensions =  ReadConfig(config_file, config_words)
  
-  #output config parameters
   print("Following parameters read from " + config_file + ":")
   print("Input dir: \t \t" + input_path) 
   print("Output dir: \t \t" + output_path)
@@ -114,8 +159,10 @@ def main():
   print("Movie extensions: \t" + file_extensions)
   print("\n \n")
 
-  nM.PutNakedMoviesInFolders(input_path, file_extensions) #move movies which are not into subfolder to a subfolder
-  Filebot(input_path, output_path, name_format, database) #auto-detect, rename, move movies
+  nM.PutNakedMoviesInFolders(input_path, file_extensions)
+  #FilebotTest(input_path, output_path, name_format, database) 
+  #FilebotMove(input_path, output_path, name_format, database)  
+  FilebotCopy(input_path, output_path, name_format, database)
 
 
 main()
