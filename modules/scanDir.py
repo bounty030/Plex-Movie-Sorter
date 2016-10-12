@@ -2,6 +2,8 @@
 
 import os
 import os.path
+import modules.moveFilesToFolders as mFTF
+import modules.utilityFunctions as uF
 
 # Scan directory with all subfolders for files which are defined in array "search_extensions"
 def ScanDirForAllFiles(directory, f, search_extensions):
@@ -26,8 +28,9 @@ def ScanDirForAllFiles(directory, f, search_extensions):
         # if file does end with extension write to .txt-file
         else:
           f.write(filepath + "\n")
+          print(filepath)
           file_counter += 1      
-
+          print(str(file_counter))
     elif os.path.isdir(filepath):
       # We got a directory, enter into it for further processing
       ScanDirForAllFiles(filepath, f, search_extensions)
@@ -61,32 +64,35 @@ def ScanDirForFiles(directory, f, search_extensions):
           file_counter += 1
 
 
-# Handling function
-def ScanDir(function, search_extensions, directory, log_path):
+# main function
+def ScanDir(search_extensions, directory):
+
   global file_counter
   file_counter = 0 # counter for detected files with defined extensions
 
-  f = open(log_path, "w")
+  #log files
+  log_path = "logs/" # path to log files
+  log_naked_files = log_path + "files.not.in.folders.txt"
+  log_folder_files = log_path + "files.in.folders.txt"
 
-  # scan directory only for files which are not in subfolders 
-  if function == 'only':
-    ScanDirForFiles(directory, f, search_extensions)
-   # print(str(file_counter) + " files which are not in a folder detected and written to " + log_path) #print number of detected files
-    print("Files which are not in folders: " + str(file_counter) + " files \t" + "(see " + log_path + ")" ) #print number of detected files
-  # scan directory for all files
-  if function == 'all':
-    ScanDirForAllFiles(directory, f, search_extensions)
-    print("Files which are not in folders: " + str(file_counter) + " files \t" + "(see " + log_path + ")" ) #print number of detected files
-  
-  f.close()
+  f_naked_files = open(log_naked_files, "w")
+  f_folder_files = open(log_folder_files, "w")
 
+  #Scan directory for files which are not in folders
+  ScanDirForFiles(directory, f_naked_files, search_extensions)
+  print("Files which are not in folders: \t" + str(file_counter) + " files " + "-> " + log_naked_files) #print number of detected files
 
-# For debugging only!!!!!!!!!!!!!
-#def main():
-#  directory = "/path/to/movie-files"
-#  search_extensions = ['avi', 'dat', 'mp4', 'mkv', 'vob', 'flv']
+   
+  f_naked_files.close() #Close log_file for function below
+  mFTF.PutNakedFilesInFolders(log_naked_files) #Move files which are not in folders to a folder with the same name as the file
+
+ 
+  # Scan directory for all files, only files which are in subfolders are remaining
+  file_counter = 0 #reset file_counter
+  ScanDirForAllFiles(directory, f_folder_files, search_extensions)
+  print("Files which are in folders: \t \t" + str(file_counter) + " files " + "-> " + log_folder_files) #print number of detected files
+  print("Number of files to be processed: \t" + str(file_counter) + " files")
+  f_folder_files.close()
   
-#  ScanDir('all', search_extensions, directory)
-#  ScanDir('only', search_extensions, directory)
+  uF.StripFilename(log_folder_files, "logs/files.in.folders.stripped.txt")
   
-#main()
