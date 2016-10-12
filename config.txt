@@ -1,8 +1,8 @@
 #Directory where the movie files are located
-input_path = example/input_dir/
+input_path = /home/tbfk/Mount/FreeNAS_Movies1/
 
 #Directory where the movie files are moved to
-output_path = example/output_dir/
+output_path = /home/tbfk/Mount/intHDD/Documents/Spyder.Workspaces/Plex-Movie-Sorter/example/output_dir/
 
 #Name scheme for renaming the files with Filebot
 name_format = "{n.acronym().getAt(0).replaceAll('0', '#').replaceAll('1', '#').replaceAll('2', '#').replaceAll('3', '#').replaceAll('4', '#').replaceAll('5', '#').replaceAll('6', '#').replaceAll('7', '#').replaceAll('8', '#').replaceAll('9', '#')}/{y}/{n.space('.')}"
@@ -11,4 +11,7 @@ name_format = "{n.acronym().getAt(0).replaceAll('0', '#').replaceAll('1', '#').r
 database = "TheMovieDB"
 
 #Only files with defined extensions will be processed
-file_extensions = ['avi', 'dat', 'mp4', 'mkv', 'vob', 'flv'] 
+file_extensions = avi, dat, mp4, mkv, vob, flv
+
+#other modes are copy, test and move
+filebot_mode = test
